@@ -1,0 +1,22 @@
+{
+  "name": "advice-generator-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.7",
+    "gh-pages": "^3.2.3",
+    "vite": "^2.9.0"
+  },
+  "homepage": "https://SharonJseg.github.io/github-user-search-app"
+}
