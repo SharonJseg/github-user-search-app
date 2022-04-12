@@ -278,9 +278,13 @@
   }
 
   .info {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 0px;
     padding: 32px 24px 48px;
+  }
+
+  .info__image {
+    max-width: 70px;
   }
 
   .info__name {
