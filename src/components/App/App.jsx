@@ -1,4 +1,5 @@
 import './App.css';
+import Icon from '../Icon/Icon';
 import moon from '../../images/icon-moon.svg';
 import search from '../../images/icon-search.svg';
 import oval from '../../images/Oval.png';
@@ -11,13 +12,25 @@ const App = () => {
         <nav className='nav'>
           <h1 className='logo'>devfinder</h1>
           <button className='theme-button'>
-            Dark <img src={moon} alt='' className='theme-button__icon' />
+            Dark
+            <Icon
+              name='moon'
+              height='20'
+              width='20'
+              className='theme-button__icon'
+            />
           </button>
         </nav>
       </header>
       <main className='main'>
         <form action='' className='form'>
-          <img className='form__search-icon' src={search} alt='' />
+          {/* <img className='form__search-icon' src={search} alt='' /> */}
+          <Icon
+            name='search'
+            width='24'
+            height='24'
+            className='form__search-icon'
+          />
           <input
             className='form__input'
             type='text'
@@ -59,22 +72,42 @@ const App = () => {
           <div className='info__contact'>
             <div>
               <a href='#' className='info__contact-text'>
-                <img src={icon} alt='' className='info__contact-icon' />
+                <Icon
+                  name='location'
+                  height='20'
+                  width='20'
+                  className='info__contact-icon'
+                />
                 San Francisco
               </a>
 
               <a href='#' className='info__contact-text'>
-                <img src={icon} alt='' className='info__contact-icon' />
+                <Icon
+                  name='website'
+                  height='20'
+                  width='20'
+                  className='info__contact-icon'
+                />
                 https://github.blog
               </a>
             </div>
             <div>
               <a href='#' className='info__contact-text'>
-                <img src={icon} alt='' className='info__contact-icon' />
+                <Icon
+                  name='twitter'
+                  height='20'
+                  width='20'
+                  className='info__contact-icon'
+                />
                 Not Available
               </a>
               <a href='#' className='info__contact-text'>
-                <img src={icon} alt='' className='info__contact-icon' />
+                <Icon
+                  name='company'
+                  height='20'
+                  width='20'
+                  className='info__contact-icon'
+                />
                 @github
               </a>
             </div>

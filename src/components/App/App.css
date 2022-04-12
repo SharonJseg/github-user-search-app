@@ -204,6 +204,7 @@
 
 .info__contact-icon {
   margin-right: 19.12px;
+  fill: currentColor;
 }
 
 @media screen and (max-width: 768px) {
@@ -261,10 +262,6 @@
 
   .form {
     padding: 6.5px 7px 7.5px 16px;
-  }
-
-  .form__search-icon {
-    width: 20px;
   }
 
   .form__input {
