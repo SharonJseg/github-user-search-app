@@ -3,20 +3,24 @@
   --ff-base: 'Space Mono', monospace;
 
   /* Font Sizes */
-  --fs-400: 1.125rem;
-  --fs-500: 1.375rem;
-  --fs-600: 2.25rem;
-  --fs-700: 3.75rem;
-  --fs-800: 4.375rem;
-  --fs-900: 6rem;
+  --fs-400: 0.8125rem;
+  --fs-500: 0.9375rem;
+  --fs-600: 1.125rem;
+  --fs-700: 1.375rem;
+  --fs-800: 1.625rem;
 
   /* Font weights */
-  --fw-base: 300;
-  --fw-bold: 900;
+  --fw-base: 400;
+  --fw-bold: 700;
 
   /* Colors */
   --clr-white: #fff;
-  --clr-almost-black: #151515;
-  --clr-dark-gray: #444444;
-  --clr-gold: #d5966c;
+  --clr-off-white: #fefefe;
+  --clr-light-gray: #f6f8ff;
+  --clr-gray: #697c9a;
+  --clr-dark-gray: #4b6a9b;
+  --clr-darker-gray: #2b3442;
+  --clr-darkest-gray: #1e2a47;
+  --clr-almost-black: #141d2f;
+  --clr-blue: #0079ff;
 }
