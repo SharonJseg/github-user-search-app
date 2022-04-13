@@ -50,10 +50,7 @@ p {
 }
 
 body {
-  background: #faf8f6;
   font-family: var(--ff-base);
-  color: var(--clr-almost-black);
-  background: red;
   margin: 0 auto;
   min-height: 100vh;
   -webkit-text-size-adjust: 100%;

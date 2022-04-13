@@ -1,30 +1,48 @@
 import './App.css';
 import Icon from '../Icon/Icon';
-import moon from '../../images/icon-moon.svg';
-import search from '../../images/icon-search.svg';
 import oval from '../../images/Oval.png';
-import icon from '../../images/icon-company.svg';
+import { useState } from 'react';
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleThemeHandler = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className='page'>
+    <div className={`page ${darkMode ? 'theme-dark' : 'theme-light'}`}>
       <header className='header'>
         <nav className='nav'>
-          <h1 className='logo'>devfinder</h1>
-          <button className='theme-button'>
-            Dark
-            <Icon
-              name='moon'
-              height='20'
-              width='20'
-              className='theme-button__icon'
-            />
-          </button>
+          <h1 className={darkMode ? 'logo' : 'logo logo__light'}>devfinder</h1>
+          {!darkMode ? (
+            <button className='theme-button' onClick={toggleThemeHandler}>
+              Dark
+              <Icon
+                name='moon'
+                height='20'
+                width='20'
+                className='theme-button__icon'
+              />
+            </button>
+          ) : (
+            <button
+              className='theme-button theme-button_light'
+              onClick={toggleThemeHandler}
+            >
+              Light
+              <Icon
+                name='sun'
+                height='20'
+                width='20'
+                className='theme-button__icon'
+              />
+            </button>
+          )}
         </nav>
       </header>
       <main className='main'>
-        <form action='' className='form'>
-          {/* <img className='form__search-icon' src={search} alt='' /> */}
+        <form action='' className={darkMode ? 'form form_light' : 'form'}>
           <Icon
             name='search'
             width='24'
@@ -32,7 +50,9 @@ const App = () => {
             className='form__search-icon'
           />
           <input
-            className='form__input'
+            className={
+              darkMode ? 'form__input form__input_light' : 'form__input'
+            }
             type='text'
             placeholder='Search GitHub username…'
           />
@@ -42,11 +62,17 @@ const App = () => {
           </button>
         </form>
 
-        <section className='info'>
+        <section className={darkMode ? 'info info_light' : 'info'}>
           <img src={oval} alt='' className='info__image' />
           <div className='info__details'>
             <div>
-              <h2 className='info__name'>The Octocat</h2>
+              <h2
+                className={
+                  darkMode ? 'info__name info__name_light' : 'info__name'
+                }
+              >
+                The Octocat
+              </h2>
               <p className='info__address'>@Octocat</p>
             </div>
             <p className='info__joined'>Joined 25 Jan 2011</p>
@@ -55,7 +81,13 @@ const App = () => {
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
             odio. Quisque volutpat mattis eros.
           </p>
-          <div className='info__statistics'>
+          <div
+            className={
+              darkMode
+                ? 'info__statistics info__statistics_light'
+                : 'info__statistics'
+            }
+          >
             <div>
               <h3 className='info__statistics-header'>Repos</h3>
               <p className='info__statistics-number'>8</p>
@@ -69,7 +101,11 @@ const App = () => {
               <p className='info__statistics-number'>9</p>
             </div>
           </div>
-          <div className='info__contact'>
+          <div
+            className={
+              darkMode ? 'info__contact info__contact_light' : 'info__contact'
+            }
+          >
             <div>
               <a href='#' className='info__contact-text'>
                 <Icon

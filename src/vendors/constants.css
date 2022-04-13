@@ -24,3 +24,15 @@
   --clr-almost-black: #141d2f;
   --clr-blue: #0079ff;
 }
+
+.theme-dark {
+  color: var(--clr-white);
+  background: var(--clr-almost-black);
+  transition: background-color 0.25s ease-in-out;
+}
+
+.theme-light {
+  color: var(--clr-dark-gray);
+  background: var(--clr-light-gray);
+  transition: background-color 0.25s ease-in-out;
+}
