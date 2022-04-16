@@ -3,12 +3,32 @@ import Icon from '../Icon/Icon';
 import oval from '../../images/Oval.png';
 import { useState } from 'react';
 
-const Main = ({ darkMode }) => {
+const Main = ({ darkMode, onSearchClick, noUser, userDetails }) => {
+  const {
+    avatar_url: image,
+    bio,
+    blog,
+    company,
+    created_at,
+    followers,
+    following,
+    location,
+    name,
+    login,
+    public_repos,
+    twitter_username,
+  } = userDetails;
   const [searchUser, setSearchUser] = useState('');
+
+  const getDate = new Date(created_at).toDateString().split(' ');
+  const day = getDate[2];
+  const month = getDate[1];
+  const year = getDate[3];
 
   const handleSearchUser = (evt) => {
     evt.preventDefault();
-    setSearchUser('');
+    onSearchClick(searchUser);
+    // setSearchUser('');
   };
 
   return (
@@ -30,14 +50,14 @@ const Main = ({ darkMode }) => {
           value={searchUser}
           onChange={(e) => setSearchUser(e.target.value)}
         />
-        <span className='form__error'>No results</span>
+        {noUser && <span className='form__error'>No results</span>}
         <button className='form__button' type='submit'>
           Search
         </button>
       </form>
 
       <section className={darkMode ? 'info info_light' : 'info'}>
-        <img src={oval} alt='' className='info__image' />
+        <img src={image || oval} alt={name || ''} className='info__image' />
         <div className='info__details'>
           <div>
             <h2
@@ -45,16 +65,15 @@ const Main = ({ darkMode }) => {
                 darkMode ? 'info__name info__name_light' : 'info__name'
               }
             >
-              The Octocat
+              {name || 'Developer Name'}
             </h2>
-            <p className='info__address'>@Octocat</p>
+            <p className='info__address'>@{login || 'login'}</p>
           </div>
-          <p className='info__joined'>Joined 25 Jan 2011</p>
+          <p className='info__joined'>
+            Joined {day} {month} {year}
+          </p>
         </div>
-        <p className='info__description'>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-          Quisque volutpat mattis eros.
-        </p>
+        <p className='info__description'>{bio || `Developer's short bio`}</p>
         <div
           className={
             darkMode
@@ -64,15 +83,15 @@ const Main = ({ darkMode }) => {
         >
           <div>
             <h3 className='info__statistics-header'>Repos</h3>
-            <p className='info__statistics-number'>8</p>
+            <p className='info__statistics-number'>{public_repos || '0'}</p>
           </div>
           <div>
             <h3 className='info__statistics-header'>Followers</h3>
-            <p className='info__statistics-number'>3938</p>
+            <p className='info__statistics-number'>{followers || '0'}</p>
           </div>
           <div>
             <h3 className='info__statistics-header'>Following</h3>
-            <p className='info__statistics-number'>9</p>
+            <p className='info__statistics-number'>{following || '0'}</p>
           </div>
         </div>
         <div
@@ -81,45 +100,80 @@ const Main = ({ darkMode }) => {
           }
         >
           <div>
-            <a href='#' className='info__contact-text'>
+            <div
+              className={
+                location === null
+                  ? 'info__contact-container info__contact-container_disabled'
+                  : 'info__contact-container'
+              }
+            >
               <Icon
                 name='location'
                 height='20'
                 width='20'
                 className='info__contact-icon'
               />
-              San Francisco
-            </a>
-
-            <a href='#' className='info__contact-text'>
+              <a href='#' className='info__contact-text'>
+                {location === null ? 'Not Available' : location || 'location'}
+              </a>
+            </div>
+            <div
+              className={
+                blog === null
+                  ? 'info__contact-container info__contact-container_disabled'
+                  : 'info__contact-container'
+              }
+            >
               <Icon
                 name='website'
                 height='20'
                 width='20'
                 className='info__contact-icon'
               />
-              https://github.blog
-            </a>
+              <a href='#' className='info__contact-text'>
+                {blog === null ? 'Not Available' : blog || 'Website'}
+              </a>
+            </div>
           </div>
           <div>
-            <a href='#' className='info__contact-text'>
+            <div
+              className={
+                twitter_username === null
+                  ? 'info__contact-container info__contact-container_disabled'
+                  : 'info__contact-container'
+              }
+            >
               <Icon
                 name='twitter'
                 height='20'
                 width='20'
                 className='info__contact-icon'
               />
-              Not Available
-            </a>
-            <a href='#' className='info__contact-text'>
+              <a href='#' className='info__contact-text'>
+                {twitter_username === null
+                  ? 'Not Available'
+                  : twitter_username || 'Twitter'}
+              </a>
+            </div>
+            <div
+              className={
+                company === null
+                  ? 'info__contact-container info__contact-container_disabled'
+                  : 'info__contact-container'
+              }
+            >
               <Icon
                 name='company'
                 height='20'
                 width='20'
                 className='info__contact-icon'
               />
-              @github
-            </a>
+              <a href='#' className='info__contact-text'>
+                {company === null
+                  ? 'Not Available'
+                  : `@${company}` || 'Company'}
+              </a>
+            </div>
           </div>
         </div>
       </section>
