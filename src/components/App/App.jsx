@@ -11,14 +11,8 @@ const App = () => {
   const handleUserSearch = async (username) => {
     setNoUserFound(false);
     try {
-      let response = await fetch(`https://api.github.com/users/${username}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `token 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`,
-        },
-      });
+      let response = await fetch(`https://api.github.com/users/${username}`);
       let data = await response.json();
-      console.log(data);
       setUser(data);
       if (data.message) {
         setNoUserFound(true);

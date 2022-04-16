@@ -28,7 +28,7 @@ const Main = ({ darkMode, onSearchClick, noUser, userDetails }) => {
   const handleSearchUser = (evt) => {
     evt.preventDefault();
     onSearchClick(searchUser);
-    // setSearchUser('');
+    setSearchUser('');
   };
 
   return (
@@ -73,7 +73,9 @@ const Main = ({ darkMode, onSearchClick, noUser, userDetails }) => {
             Joined {day} {month} {year}
           </p>
         </div>
-        <p className='info__description'>{bio || `Developer's short bio`}</p>
+        <p className='info__description'>
+          {bio ? `${bio}.` : `Developer's short bio.`}
+        </p>
         <div
           className={
             darkMode
@@ -130,7 +132,7 @@ const Main = ({ darkMode, onSearchClick, noUser, userDetails }) => {
                 width='20'
                 className='info__contact-icon'
               />
-              <a href='#' className='info__contact-text'>
+              <a href={blog} target='_blank' className='info__contact-text'>
                 {blog === null ? 'Not Available' : blog || 'Website'}
               </a>
             </div>
@@ -149,7 +151,11 @@ const Main = ({ darkMode, onSearchClick, noUser, userDetails }) => {
                 width='20'
                 className='info__contact-icon'
               />
-              <a href='#' className='info__contact-text'>
+              <a
+                href={twitter_username}
+                target='_blank'
+                className='info__contact-text'
+              >
                 {twitter_username === null
                   ? 'Not Available'
                   : twitter_username || 'Twitter'}
@@ -171,7 +177,9 @@ const Main = ({ darkMode, onSearchClick, noUser, userDetails }) => {
               <a href='#' className='info__contact-text'>
                 {company === null
                   ? 'Not Available'
-                  : `@${company}` || 'Company'}
+                  : company
+                  ? `@${company}`
+                  : '@Company'}
               </a>
             </div>
           </div>
